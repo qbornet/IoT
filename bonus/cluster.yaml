@@ -1,0 +1,11 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: part-three
+servers: 1
+files:
+  - description: "All namespaces for part three."
+    source: "manifest/my-namespaces.yaml"
+    destination: "/var/lib/rancher/k3s/server/manifests/01-namespaces/my-namespaces.yaml"
+    nodeFilters:
+      - "server:0"
