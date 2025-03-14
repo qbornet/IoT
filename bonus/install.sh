@@ -8,7 +8,7 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 apt-get update
-apt-get installl -y curl openssh-server ca-certificates perl postfix
+apt-get install curl openssh-server ca-certificates perl -y
 
 curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | bash
 
