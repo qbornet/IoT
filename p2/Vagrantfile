@@ -12,10 +12,10 @@ Vagrant.configure("2") do |config|
     end
     controller.vm.provision "shell", inline: <<-SHELL
       mkdir -p /etc/rancher/k3s
-      cp /vagrant/config.yaml /etc/rancher/k3s
+      cp /vagrant/confs/config.yaml /etc/rancher/k3s
       curl -sfL https://get.k3s.io | sh -
       sleep 15
-      kubectl apply -f /vagrant/deployment.yaml
+      kubectl apply -f /vagrant/confs/deployment.yaml
     SHELL
   end
 end

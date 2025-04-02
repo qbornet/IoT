@@ -19,13 +19,4 @@ if email
   email.delete_all
 end
 
-key_content = File.read('/home/thrio/.ssh/id_ed25519.pub').strip
-puts "key: #{key_content}"
-
-k = Key.find_by(key: key_content)
-
-if k
-  k.delete
-end
-
 puts "del finished"

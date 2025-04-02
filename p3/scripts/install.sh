@@ -31,11 +31,11 @@ echo "Docker installation finished !"
 echo "Add docker group to user qbornet..."
 
 
-if [ $(group qbornet  | grep -q "docker") -ne 0 ] && [[ cat /etc/groups | grep -q "docker" ]]; then
-    /usr/sbin/usermod -aG docker qbornet
+if [ $(group thrio | grep -q "docker") -ne 0 ] && [[ cat /etc/groups | grep -q "docker" ]]; then
+    /usr/sbin/usermod -aG docker thrio
 else
     /usr/sbin/groupadd docker
-    /usr/sbin/usermod -aG docker qbornet
+    /usr/sbin/usermod -aG docker thrio
 fi
 
 echo "group docker addedd to user qbornet !"
@@ -54,3 +54,5 @@ echo "Installing k3d..."
 
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 echo "Finished installation script !"
+
+sh /home/thrio/IoT/p3/scripts/install-argocd.sh

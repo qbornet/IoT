@@ -10,7 +10,7 @@ fi
 # delete if cluster is already present.
 k3d cluster rm part-three
 
-k3d cluster create --config ./cluster.yaml --wait
+k3d cluster create --config /home/thrio/IoT/p3/confs/cluster.yaml --wait
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 
@@ -28,7 +28,7 @@ done
 pass=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
 
 
-kubectl apply -n argocd -f ./app.yaml
+kubectl apply -n argocd -f /home/thrio/IoT/p3/confs/app.yaml
 
 echo "admin password: $pass"
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 8888:443
